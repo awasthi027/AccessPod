@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-AccessPod/Pods-AccessPod-frameworks.sh
+${BUILT_PRODUCTS_DIR}/ImageCacheiOS/ImageCacheiOS.framework
+${BUILT_PRODUCTS_DIR}/iOSFilesUtils/iOSFilesUtils.framework

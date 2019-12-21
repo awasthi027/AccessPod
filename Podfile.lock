@@ -1,0 +1,20 @@
+PODS:
+  - ImageCacheiOS (0.0.2)
+  - iOSFilesUtils (0.0.3):
+    - ImageCacheiOS (~> 0.0.2)
+
+DEPENDENCIES:
+  - iOSFilesUtils (~> 0.0.3)
+
+SPEC REPOS:
+  trunk:
+    - ImageCacheiOS
+    - iOSFilesUtils
+
+SPEC CHECKSUMS:
+  ImageCacheiOS: e75f76a08e61abff421e5cbd77c54d4a79167566
+  iOSFilesUtils: 9095bf971d77dcca09cb347e07a109c83ce7a49f
+
+PODFILE CHECKSUM: c12a87380fb6da4bc64eb3521c64c3724b7b5236
+
+COCOAPODS: 1.8.4

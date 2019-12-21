@@ -1,0 +1,306 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fnil\fcharset0 Monaco;\f1\fnil\fcharset0 Georgia;\f2\fnil\fcharset0 AppleColorEmoji;
+\f3\fswiss\fcharset0 Helvetica;\f4\fnil\fcharset0 Menlo-Regular;\f5\froman\fcharset0 Times-Roman;
+}
+{\colortbl;\red255\green255\blue255;\red217\green11\blue5;\red255\green255\blue255;\red47\green255\blue18;
+\red252\green83\blue8;\red206\green59\blue5;\red206\green59\blue5;\red217\green11\blue5;\red85\green142\blue40;
+\red0\green0\blue0;\red0\green0\blue0;\red0\green0\blue0;\red0\green0\blue233;\red47\green180\blue29;
+\red159\green160\blue28;}
+{\*\expandedcolortbl;;\cssrgb\c88946\c14202\c0;\cssrgb\c100000\c100000\c100000;\cssrgb\c15686\c99608\c7843;
+\cssrgb\c100000\c41713\c26;\cssrgb\c85233\c31565\c0;\cssrgb\c85233\c31565\c0;\cssrgb\c88946\c14202\c0;\cssrgb\c39975\c61335\c20601;
+\cssrgb\c0\c0\c0;\cssrgb\c0\c0\c0\c84314;\cssrgb\c0\c0\c0\c4706;\cssrgb\c0\c0\c93333;\cssrgb\c20239\c73899\c14948;
+\cssrgb\c68469\c68013\c14209;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww20500\viewh11120\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 \CocoaLigature0 \
+
+\f1\fs36 How to create own pod file and shared with other developers.
+\fs28 \
+ \
+Create and public own pod.
+\f0 \cf4 \
+\
+\cf5 Step 1:-\
+Create pod file in local directory by running below command.\
+\
+pod spec create podspecificationfileName \
+\
+Example: \
+pod spec create iOSUtilis \
+\
+After creating file do configuration of target version, tag, code sync, dependency of other framework.\cf4 \
+\
+\cf6 Step 2: once you are make sure you code is compiling and well working\
+Create tag of your branch like below\
+\
+git tag 0.0.1\
+\
+git push origin 0.0.1\
+\
+And update tag number in \cf7 \cb3 iOSUtilis.podspec file\cf6 \cb3 \
+Step 3: run command: \
+\
+pod spec lint iOSUtilis.podspec \
+\
+Result will be:\
+\
+iOSUtilis.podspec passed validation\
+\
+Step 4: publish you pod to online \
+Run command.\
+\
+pod trunk push iOSUtilis.podspec\
+\cf4 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb3 Result will be:\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf4 \cb3 --------------------------------------------------------------------------------\
+ 
+\f2 \uc0\u55356 \u57225 
+\f0   Congrats\
+\
+ 
+\f2 \uc0\u55357 \u56960 
+\f0   iOSLoader (0.0.1) successfully published\
+ 
+\f2 \uc0\u55357 \u56517 
+\f0   September 28th, 20:27\
+ 
+\f2 \uc0\u55356 \u57102 
+\f0   https://cocoapods.org/pods/iOSLoader\
+ 
+\f2 \uc0\u55357 \u56397 
+\f0   Tell your friends!\
+--------------------------------------------------------------------------------\
+Chandrakants-MacBook-Pro:\cf7 \cb3 iOSUtilis\cf4 \cb3  chandrakant$ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1 \cf8 \cb3 ==============================================\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0 \cf7 \cb3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs36 \cf8 \cb3 How to create create another version of pod.\
+
+\fs28 \
+Step 1: Just make changes in your code and validate the working.\
+Step 2. Create another version of tag\
+\
+git tag 0.0.2\
+\
+git push origin tag 0.0.2\
+\
+Step 3. Update new tag version in iOSUtils.podspec\
+Run command \
+\
+pod spec lint  iOSUtils.podspec\
+\
+Still getting error fix \
+\
+Delete tag\
+\
+git tag -d tagName \
+\
+git push origin tagName\
+\
+Clear cache\
+\
+pod cache clean --all\
+\
+Fix error in origin branch and again create tag and do remaining process when get success  \'93
+\f0 \cf7 \cb3 iOSUtilis.podspec passed validation\'94
+\f1 \cf8 \cb3 \
+\
+Step 4. Final step\
+\
+Run command \
+\
+pod trunk push  iOSUtils.podspec\
+\
+==============================================\
+\
+
+\fs36 How to test on local machine update pod source code.\
+\
+
+\fs28 Step: 1 Just we have local source code reference in Podfile  like below.\
+\
+target \'91travel\'92 do \
+\
+pod \'91iOSUtilis\'92,path=>\'92/users/chandrakant/Desktop/R&D/iOSUtils\'92 #like this  \
+
+\fs36 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f3\fs24 \cf9 \cb1 \CocoaLigature1  
+\f1\fs36 \cf8 \cb3 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs28 \cf8 Step 2:\
+\
+pod install \
+\
+\
+==============================================\
+\
+
+\fs36 How to access pod source code from local and online.\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f3\fs28 \cf0 \cb1 \CocoaLigature1 Step 1:- 
+\fs24 \
+Modified pod framework classes and build the framework.  Instruction:- Always build framework whenever we modified classed or any update.\
+
+\fs28 \
+Step 2: 
+\fs24 \
+Add path of local pod framework in project pod file where you accesses pod local framework like below.\
+\
+\
+# Uncomment the next line to define a global platform for your project\
+# platform :ios, '10.0'\
+\
+target 'Travel' do\
+  # Comment the next line if you don't want to use dynamic frameworks\
+  use_frameworks!\
+\
+  # Pods for Travel\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf9     pod 'iOSLoader', :path => '/Users/chandrakant/Desktop/R&D/iOSLoader' # like this \
+   # pod 'iOSLoader', '~> 0.0.5' # comment cocoaPodLink\cf0 \
+    pod 'ImageCacheiOS', '~> 0.0.2'\
+\
+  target 'TravelTests' do\
+    inherit! :search_paths\
+    # Pods for testing\
+  end\
+\
+  target 'TravelUITests' do\
+    # Pods for testing\
+  end\
+\
+end\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\fs28 \cf0 Step 3: run comment \
+
+\fs24 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf10 \cb3 \CocoaLigature0 pod install\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1 \cf8 \cb3 ==============================================\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0 \cf10 \cb3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs36 \cf8 \cb3 How to create dependency for current framework other framework.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf10 \cb3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1 \cf2 \cb3 Create dependency one to another framework thru pod.\
+Just write below text in pod spec file \
+\
+# Dependency on framework \
+\
+s.dependency "ImageCacheiOS", "~> 0.0.2" \
+\
+Where\'92ve you want to import just added pod directory in project file.\
+ Image ImageCacheiOS cached aleready downloaded.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f4\fs32 \cf11 \cb12 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f0\fs28 \cf4 \cb3 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://medium.com/@dark_torch/adding-cocoapods-to-your-library-daa755d18fd"}}{\fldrslt 
+\f5\fs24 \cf13 \cb1 \expnd0\expndtw0\kerning0
+\ul \ulc13 \CocoaLigature1 https://medium.com/@dark_torch/adding-cocoapods-to-your-library-daa755d18fd}}\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf4 \
+Last login: Sat Sep 28 17:08:19 on ttys000\
+Chandrakants-MacBook-Pro:~ chandrakant$ cd /Users/chandrakant/Desktop/R\\&D/iOSLoader \
+\
+Chandrakants-MacBook-Pro:iOSLoader chandrakant$ pod spec lint iOSLoader.podspec\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf14  -> \cf4 iOSLoader (0.0.1)\
+    - NOTE  | xcodebuild:  note: Using new build system\
+    - NOTE  | [iOS] xcodebuild:  note: Planning build\
+    - NOTE  | [iOS] xcodebuild:  note: Constructing build description\
+\
+Analyzed 1 podspec.\
+\
+\cf14 iOSLoader.podspec passed validation.\cf4 \
+\
+Chandrakants-MacBook-Pro:iOSLoader chandrakant$ pod trunk push iOSLoader.podspec\
+Updating spec repo `trunk`\
+\
+\cf14 CocoaPods 1.8.1 is available.\cf4 \
+\cf14 To update use: `sudo gem install cocoapods`\cf4 \
+\
+\cf14 For more information, see https://blog.cocoapods.org and the CHANGELOG for this version at https://github.com/CocoaPods/CocoaPods/releases/tag/1.8.1\cf4 \
+\
+\cf15 Validating podspec\cf4 \
+\cf14  -> \cf4 iOSLoader (0.0.1)\
+    - NOTE  | xcodebuild:  note: Using new build system\
+    - NOTE  | [iOS] xcodebuild:  note: Planning build\
+    - NOTE  | [iOS] xcodebuild:  note: Constructing build description\
+\
+Updating spec repo `trunk`\
+\
+\cf14 CocoaPods 1.8.1 is available.\cf4 \
+\cf14 To update use: `sudo gem install cocoapods`\cf4 \
+\
+\cf14 For more information, see https://blog.cocoapods.org and the CHANGELOG for this version at https://github.com/CocoaPods/CocoaPods/releases/tag/1.8.1\cf4 \
+\
+\
+--------------------------------------------------------------------------------\
+ 
+\f2 \uc0\u55356 \u57225 
+\f0   Congrats\
+\
+ 
+\f2 \uc0\u55357 \u56960 
+\f0   iOSLoader (0.0.1) successfully published\
+ 
+\f2 \uc0\u55357 \u56517 
+\f0   September 28th, 20:27\
+ 
+\f2 \uc0\u55356 \u57102 
+\f0   https://cocoapods.org/pods/iOSLoader\
+ 
+\f2 \uc0\u55357 \u56397 
+\f0   Tell your friends!\
+--------------------------------------------------------------------------------\
+Chandrakants-MacBook-Pro:iOSLoader chandrakant$ \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://medium.com/stantmob/working-with-cocoapods-lib-locally-8f5665f059af"}}{\fldrslt 
+\f5\fs24 \cf13 \cb1 \expnd0\expndtw0\kerning0
+\ul \ulc13 \CocoaLigature1 https://medium.com/stantmob/working-with-cocoapods-lib-locally-8f5665f059af}}
+\f5\fs24 \cf13 \cb1 \expnd0\expndtw0\kerning0
+\ul \ulc13 \CocoaLigature1 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0\fs28 \cf4 \cb3 \kerning1\expnd0\expndtw0 \ulnone \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf3 \
+\
+\
+}

@@ -1,0 +1,6 @@
+framework module Pods_AccessPod_AccessPodUITests {
+  umbrella header "Pods-AccessPod-AccessPodUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
